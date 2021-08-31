@@ -16,6 +16,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
     "eslint": "^7.32.0",
+    "eslint-plugin-no-loops": "^0.3.0",
     "husky": "^7.0.2",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
