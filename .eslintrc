@@ -10,6 +10,7 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules":{
-      "no-console": 2 // Remember, this means error!
+      "no-console": 2 ,
+      "no-loops/no-loops": 2
     }
   }
