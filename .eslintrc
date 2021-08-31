@@ -3,13 +3,29 @@
     "parser": "@typescript-eslint/parser",
     "plugins": [
       "@typescript-eslint",
+      "no-loops",
       "prettier"
     ],
     "extends": [
       "plugin:shopify/esnext",
+      "plugin:shopify/typescript",
       "prettier"
     ],
     "rules":{
-      "prettier/prettier": 2
+      "no-loops/no-loops": 2, // 2 means throw an ERROR 
+      "no-console": 1,
+      "prettier/prettier": 2,
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/class-name-casing":"off",
+      "@typescript-eslint/ban-ts-ignore":"off",
+      "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase"
+            ]
+          }
+        ]
     }
   }
