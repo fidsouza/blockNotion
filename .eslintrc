@@ -2,12 +2,14 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-      "@typescript-eslint"
+      "@typescript-eslint",
+      "prettier"
     ],
     "extends": [
-      "plugin:shopify/esnext"
+      "plugin:shopify/esnext",
+      "prettier"
     ],
     "rules":{
-      "no-console": 2 
+      "prettier/prettier": 2
     }
   }
