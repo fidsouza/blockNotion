@@ -4,7 +4,7 @@ export class Phrase {
     this._phrase = phrase;
   }
 
-  isphraseHaveaTwoWords() {
+  isphraseHaveMinimumTwoWords() {
     if (this._phrase.indexOf(' ') > 0) {
       return true;
     }
