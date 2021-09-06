@@ -5,6 +5,9 @@ export class Phrase {
   }
 
   isphraseHaveaTwoWords() {
-    return true;
+    if (this._phrase.indexOf(' ') > 0) {
+      return true;
+    }
+    return false;
   }
 }
