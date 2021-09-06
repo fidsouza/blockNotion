@@ -17,7 +17,7 @@ const makeSut = (): SutTypes => {
 describe('phrase', () => {
   test('should a receive a new phrase with 2 words', () => {
     const { sut } = makeSut();
-    const isValidPhrase = sut.isphraseHaveaTwoWords();
+    const isValidPhrase = sut.isphraseHaveMinimumTwoWords();
     expect(isValidPhrase).toBe(true);
   });
 });
