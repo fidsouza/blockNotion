@@ -12,5 +12,12 @@
     "strict": true,                                      
     "noImplicitAny": true,                               
     "skipLibCheck": true                                 
-  }
+  },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "**/*.spec.ts",
+      "**/*.test.ts"
+    ]
 }
