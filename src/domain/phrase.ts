@@ -4,10 +4,14 @@ export class Phrase {
     this._phrase = phrase;
   }
 
-  isphraseHaveMinimumTwoWords() {
+  isphraseHaveMinimumTwoWords(): boolean {
     if (this._phrase.indexOf(' ') > 0) {
       return true;
     }
     return false;
+  }
+
+  isphraseOnlyOneChangePerDay(): boolean {
+    return true;
   }
 }
