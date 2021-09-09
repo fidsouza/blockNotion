@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync, readFileSync } from 'fs';
 
 import { FileSystemRepository } from './ports/fileSystemRepository';
 
@@ -7,5 +7,8 @@ export class FileSystem implements FileSystemRepository {
     return new Promise((resolve, reject) => {
       resolve(writeFileSync(fileName, content));
     });
+  }
+  readerAfile(fileName: string) {
+    return 'any_content';
   }
 }
