@@ -10,6 +10,10 @@ export class FileSystem implements FileSystemRepository {
   }
 
   readerAfile(fileName: string) {
-    return 'any_content';
+    const contentFile = readFileSync(`./${fileName}`, {
+      encoding: 'utf8',
+      flag: 'r'
+    });
+    return contentFile;
   }
 }
