@@ -8,6 +8,7 @@ export class FileSystem implements FileSystemRepository {
       resolve(writeFileSync(fileName, content));
     });
   }
+
   readerAfile(fileName: string) {
     return 'any_content';
   }
