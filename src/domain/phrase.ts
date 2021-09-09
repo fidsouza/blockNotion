@@ -1,8 +1,8 @@
 import { formatType } from '../utils/formatDates/ports/formatType';
 
-import { AdaptersPhrases } from './ports/phraseRepository';
+import { Phrases } from './protocols/phrases';
 
-export class Phrase implements AdaptersPhrases {
+export class Phrase implements Phrases {
   private _phrase: string;
   private _formatDate: formatType;
   constructor(phrase: string, formatDate: formatType) {
