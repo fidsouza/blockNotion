@@ -26,7 +26,7 @@ export class Phrase {
 
   isphraseOnlyOneChangePerDay(fileName: string) {
     const lastUpdatedPhrase = this.fileSystem.readerAfile(fileName);
-    const parseObject: any = JSON.parse(lastUpdatedPhrase);
+    const parseObject: date = JSON.parse(lastUpdatedPhrase);
 
     const { lastUpdate } = parseObject;
 
