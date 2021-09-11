@@ -1,6 +1,7 @@
 import { writeFileSync } from 'fs';
 
 import { formatType } from '../utils/formatDates/ports/formatType';
+import { FileSystem } from '../utils/fileSystem/fileSystem';
 
 import { Phrase } from './phrase';
 
@@ -21,16 +22,16 @@ const makeFormatDate = (): formatType => {
 };
 
 const makeSut = (): SutTypes => {
-  const sut = new Phrase(pharse, makeFormatDate());
+  const sut = new Phrase(pharse, makeFormatDate(), new FileSystem());
   return {
     sut
   };
 };
-
+const contentFile = { lastUpdate: '06/09/2021' };
+const fileName = 'lastUpdatePhrase-test.json';
 describe('phrase', () => {
   beforeAll(async () => {
-    const contentFile = { lastUpdate: '06/09/2021' };
-    writeFileSync('lastUpdatePhrase-test.json', JSON.stringify(contentFile));
+    writeFileSync(fileName, JSON.stringify(contentFile));
   });
   test('Should a receive a new phrase with 2 words', () => {
     const { sut } = makeSut();
@@ -39,7 +40,8 @@ describe('phrase', () => {
   });
   test('Should ensure that the phrase hasn t changed today', () => {
     const { sut } = makeSut();
-    const onlyOneChangePhraseEveryDay = sut.isphraseOnlyOneChangePerDay();
+    const onlyOneChangePhraseEveryDay =
+      sut.isphraseOnlyOneChangePerDay(fileName);
     expect(onlyOneChangePhraseEveryDay).toBe(true);
   });
 });
