@@ -1,6 +1,6 @@
 import { writeFileSync, readFileSync } from 'fs';
 
-import { FileSystemRepository } from './ports/fileSystemRepository';
+import { FileSystemRepository } from './protocols/fileSystemRepository';
 
 export class FileSystem implements FileSystemRepository {
   writeraFile(fileName: string, content: string) {
