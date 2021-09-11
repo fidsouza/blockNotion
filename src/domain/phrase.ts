@@ -1,6 +1,10 @@
 import { formatType } from '../utils/formatDates/ports/formatType';
 import { FileSystemRepository } from '../utils/fileSystem/protocols/fileSystemRepository';
 
+interface date {
+  lastUpdate: Date;
+}
+
 export class Phrase {
   private _phrase: string;
   private _formatDate: formatType;
@@ -21,6 +25,18 @@ export class Phrase {
   }
 
   isphraseOnlyOneChangePerDay(fileName: string) {
-    return Boolean(this.fileSystem.readerAfile(fileName));
+    const lastUpdatedPhrase = this.fileSystem.readerAfile(fileName);
+    const parseObject: any = JSON.parse(lastUpdatedPhrase);
+
+    const { lastUpdate } = parseObject;
+
+    const lastUpdatedDate = this._formatDate.formatDatePtBR(
+      new Date(lastUpdate)
+    );
+    const today = this._formatDate.formatDatePtBR(new Date());
+    if (lastUpdatedDate !== today) {
+      return true;
+    }
+    return false;
   }
 }
