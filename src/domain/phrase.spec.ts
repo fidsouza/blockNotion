@@ -1,30 +1,24 @@
 import { writeFileSync } from 'fs';
 
 import { formatType } from '../utils/formatDates/ports/formatType';
+import { FormatDate } from '../utils/formatDates/formatDate';
 import { FileSystem } from '../utils/fileSystem/fileSystem';
 
 import { Phrase } from './phrase';
 
 interface SutTypes {
   sut: Phrase;
+  sutFormatDate: Phrase;
 }
 
 const pharse = 'any phrase';
 
-const makeFormatDate = (): formatType => {
-  class FormatTypeDate implements formatType {
-    formatDatePtBR(): string {
-      const dateNow = '01/09/2021';
-      return dateNow;
-    }
-  }
-  return new FormatTypeDate();
-};
-
 const makeSut = (): SutTypes => {
-  const sut = new Phrase(pharse, makeFormatDate(), new FileSystem());
+  const sut = new Phrase(pharse, new FormatDate(), new FileSystem());
+  const sutFormatDate = new Phrase(pharse, new FormatDate(), new FileSystem());
   return {
-    sut
+    sut,
+    sutFormatDate
   };
 };
 const contentFile = { lastUpdate: '06/09/2021' };
@@ -39,9 +33,9 @@ describe('phrase', () => {
     expect(isValidPhrase).toBe(true);
   });
   test('Should ensure that the phrase hasn t changed today', () => {
-    const { sut } = makeSut();
+    const { sutFormatDate } = makeSut();
     const onlyOneChangePhraseEveryDay =
-      sut.isphraseOnlyOneChangePerDay(fileName);
+      sutFormatDate.isphraseOnlyOneChangePerDay(fileName);
     expect(onlyOneChangePhraseEveryDay).toBe(true);
   });
 });

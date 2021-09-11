@@ -3,7 +3,7 @@ import { FormatDate } from './formatDate';
 const makeDate = () => {
   const date = new Date(2014, 1, 11);
 
-  const formatDateinPtBR = new FormatDate(date).formatDatePtBR();
+  const formatDateinPtBR = new FormatDate().formatDatePtBR(date);
   return {
     formatDateinPtBR
   };
