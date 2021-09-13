@@ -1,5 +1,5 @@
-import { formatType } from '../utils/formatDates/ports/formatType';
-import { FileSystemRepository } from '../utils/fileSystem/protocols/fileSystemRepository';
+import { formatType } from '../infra/formatDates/ports/formatType';
+import { FileSystemRepository } from '../infra/fileSystem/ports/fileSystemRepository';
 
 interface date {
   lastUpdate: Date;
