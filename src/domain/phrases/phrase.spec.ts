@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs';
 
-import { FormatDate } from '../infra/formatDates/formatDate';
-import { FileSystem } from '../infra/fileSystem/fileSystem';
+import { FormatDate } from '../../infra/formatDates/formatDate';
+import { FileSystem } from '../../infra/fileSystem/fileSystem';
 
 import { Phrase } from './phrase';
 
